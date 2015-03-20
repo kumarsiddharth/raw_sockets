@@ -3,8 +3,7 @@
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <netdb.h>
-#include <strings.h> 
-#include <string.h>
+#include <string.h> 
 #include <stdlib.h> 
 //extra headers..................................
 #include <netpacket/packet.h>
@@ -14,7 +13,7 @@
 
 int main()
 {
-int sockfd, len;
+int sockfd,  dlen;
 char buffer[2048];
 struct sockaddr_ll pla;
 sockfd=socket(PF_PACKET,SOCK_RAW,htons(ETH_P_ALL));
