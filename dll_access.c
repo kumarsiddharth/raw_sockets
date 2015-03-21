@@ -5,15 +5,14 @@
 #include <netdb.h>
 #include <string.h> 
 #include <stdlib.h> 
-//extra headers..................................
 #include <netpacket/packet.h>
-#include <net/ethernet.h> /* For DLL protocols */
+#include <net/ethernet.h> //dll protocols
 
-
+unsigned long long int total =0; 
 
 int main()
 {
-int sockfd,  dlen;
+int sockfd,  len;
 char buffer[2048];
 struct sockaddr_ll pla;
 sockfd=socket(PF_PACKET,SOCK_RAW,htons(ETH_P_ALL));
@@ -31,16 +30,16 @@ printf("Types of the captured packets are...\n");
 		{
 				// these constant values are taken from linux/if_packet.h
 			case 0://PACKET_HOST
-			printf("For_Me\n");
+			printf("For_Me\n"); 
 			break;
 			case 1://PACKET_BROADCAST
-			printf("Broadcast\n");
+			printf("Broadcast\n"); 
 			break;
 			case 2://PACKET_MULTICAST
-			printf("Multicast\n");
+			printf("Multicast\n"); 
 			break;
 			case 3://PACKET_OTHERHOST
-			printf("Other_Host\n");
+			printf("Other_Host\n"); 
 			break;
 			case 4://PACKET_OUTGOING
 			printf("Outgoing\n");
@@ -52,6 +51,8 @@ printf("Types of the captured packets are...\n");
 			printf("Fast_Route\n");
 			break;
 		}
+		++total;
+		printf("total packets:%llu ,",total);
 	}
 }
 
