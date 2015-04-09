@@ -109,3 +109,5 @@ all.config
 
 #ignore other useless directories
 **/raw_sockets
+others/
+packet_sniffer/
